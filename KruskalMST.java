@@ -23,7 +23,7 @@ class DisjointSet {
 
     public int find(int u) {
         if (parent[u] != u) {
-            parent[u] = find(parent[u]);
+            parent[u] = find(parent[u]); 
         }
         return parent[u];
     }
@@ -45,7 +45,7 @@ class DisjointSet {
     }
 }
 
-public class  KruskalMST {
+public class  kruskaltime {
     public static List<Edge> kruskal(int n, List<Edge> edges) {
         List<Edge> mst = new ArrayList<>();
         DisjointSet ds = new DisjointSet(n);
@@ -54,28 +54,28 @@ public class  KruskalMST {
         for (Edge edge : edges) {
             int u = edge.src;
             int v = edge.dest;
-
             if (ds.find(u) != ds.find(v)) {
                 ds.union(u, v);
-                mst.add(edge); // Add this edge to MST
+                mst.add(edge); 
             }
         }
         return mst;
     }
+
+    // Function to generate a fully connected random graph (complete graph)
     public static List<Edge> generateRandomCompleteGraph(int n) {
         Random random = new Random();
         List<Edge> edges = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                int weight = random.nextInt(100) + 1;
+            for (int j = i + 1; j < n; j++) { 
+                int weight = random.nextInt(100) + 1; 
                 edges.add(new Edge(i, j, weight));
             }
         }
         return edges;
     }
     public static void main(String[] args) {
-        int[] vertexSizes = {10,100,500,1000,2000};
-
+        int[] vertexSizes = {1000,2000,3000,4000,5000}; 
         for (int n : vertexSizes) {
             List<Edge> edges = generateRandomCompleteGraph(n);
             long startTime = System.nanoTime();
