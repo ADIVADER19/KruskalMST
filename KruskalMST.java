@@ -62,7 +62,6 @@ public class  kruskaltime {
         return mst;
     }
 
-    // Function to generate a fully connected random graph (complete graph)
     public static List<Edge> generateRandomCompleteGraph(int n) {
         Random random = new Random();
         List<Edge> edges = new ArrayList<>();
